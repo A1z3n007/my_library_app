@@ -1,16 +1,83 @@
-# my_library_app
+# NovelShelf 📚 (Flutter)
 
-A new Flutter project.
+Лёгкая и реалистичная мобильная читалка на Flutter с акцентом на локальные файлы.  
+Проект задуман как фундамент для будущего подключения онлайн-источников через парсинг.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## ✨ Возможности (v1.3)
 
-A few resources to get you started if this is your first Flutter project:
+### 📂 Локальная библиотека
+- Импорт книг из файлов устройства:
+  - **TXT**
+  - **PDF**
+  - **DOCX**
+- Библиотека хранится локально внутри приложения
+- Поиск по названию
+- Удаление книги вместе с данными
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### 📖 Читалка
+- Отдельные ридеры для:
+  - TXT/DOCX (страничный режим)
+  - PDF (вертикальный свайп — удобно для манхв/сканов)
+- Прогресс чтения:
+  - последняя страница
+  - всего страниц (где возможно)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### 🔖 Закладки
+- Кнопка закладки прямо в Reader
+- Сохраняется:
+  - `bookId + page + snippet`
+- Экран всех закладок
+- Быстрый переход к книге
+
+### 📝 Заметки
+- Добавление заметок из Reader  
+- Отдельный экран “Заметки”
+- Хранение в SQLite
+
+### 🕘 История
+- Запись всех открытий книг
+- Блок **“Недавно открытые”** на вкладке “Читать”
+
+### 🎛 Настройки чтения
+- Размер шрифта
+- Межстрочный интервал
+- **AMOLED black**
+
+---
+
+## 🧱 Технологии
+
+- **Flutter**
+- **SQLite (sqflite)**
+- **file_picker** — импорт файлов
+- **flutter_pdfview** — чтение PDF
+- **archive + xml** — извлечение текста из DOCX
+- **shared_preferences** — настройки чтения
+
+---
+
+## 🗂 Структура проекта (упрощённо)
+
+```text
+lib/
+  models/
+    book_item.dart
+    bookmark_item.dart
+    note_item.dart
+  services/
+    db_service.dart
+    settings_service.dart
+  screens/
+    root_screen.dart
+    catalog_screen.dart
+    read_screen.dart
+    bookmarks_screen.dart
+    notes_screen.dart
+    notifications_screen.dart
+    menu_screen.dart
+    reader/
+      reader_router.dart
+      text_reader_screen.dart
+      pdf_reader_screen.dart
